@@ -1,7 +1,23 @@
+import { NavLink } from 'react-router-dom'
 import cover1 from '../../assets/main-background-cover.jpg'
 import cover2 from '../../assets/main-background-cover2.jpg'
+import useGatos from '../../hooks/useGatos'
+import { CardsDeGatos } from '../../components/CardsDeGatos';
 
 export function Home(){
+
+    const {
+        data: resultado,
+        isLoading,
+        error,
+    } = useGatos();
+
+    if (isLoading) return <h6>Carregando...</h6>;
+
+    if(error || !resultado) throw error;
+
+    const gatos = resultado;
+
     return(
         <>
             <div id="carousel-id" className="carousel slide d-none d-md-block" data-ride="carousel">
@@ -131,26 +147,17 @@ export function Home(){
             <h1 className="mb-4"><strong>Meow Meow</strong></h1>
             <div className="container">
                 <div className="row">
-                    <div id="cat" className="col-lg-4 col-md-6 mb-2 px-2 py-2 text-center cat-hover" style={{cursor: "pointer",}}>
-                    </div>
-                    <div id="cat" className="col-lg-4 col-md-6 mb-2 px-2 py-2 text-center cat-hover" style={{cursor: "pointer",}}>
-                    </div>
-                    <div id="cat" className="col-lg-4 col-md-6 mb-2 px-2 py-2 text-center cat-hover" style={{cursor: "pointer",}}>
-                    </div>
-                    <div id="cat" className="col-lg-4 col-md-6 mb-2 px-2 py-2 text-center cat-hover" style={{cursor: "pointer",}}>
-                    </div>
-                    <div id="cat" className="col-lg-4 col-md-6 mb-2 px-2 py-2 text-center cat-hover" style={{cursor: "pointer",}}>
-                    </div>
-                    <div id="cat" className="col-lg-4 col-md-6 mb-2 px-2 py-2 text-center cat-hover" style={{cursor: "pointer",}}>
-                    </div>
+                    <CardsDeGatos
+                        gatos = {gatos}
+                    />
                 </div>
             </div>
-            <a href="archive-1.html" style={{textDecoration: "none"}}>
+            <NavLink to="/nossos-gatinhos" style={{textDecoration: "none"}}>
                 <button className="btn btn-outline-dark mt-2">
-                <span>Mais gatinhos</span>
-                <i className="ph ph-arrow-right"></i>
-            </button>
-        </a>
+                    <span>Mais gatinhos</span>
+                    <i className="ph ph-arrow-right"></i>
+                </button>
+            </NavLink>
         </div>
         </>
     )

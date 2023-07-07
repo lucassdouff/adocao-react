@@ -18,7 +18,9 @@ export function Header() {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação"><span className="navbar-toggler-icon"></span></button>
                 <div className="collapse navbar-collapse" id="menu">
                     <div className="navbar-nav me-auto">
-                        <a href="archive-1.html" className="nav-link nav-item">Nossos gatinhos</a>
+                        <NavLink to="/nossos-gatinhos" title="Nossos Gatinhos" className="nav-link nav-item">
+                            Nossos gatinhos
+                        </NavLink>
                         <div className="dropdown">
                             <a href="archive-1.html" data-bs-toggle="dropdown" className="nav-link nav-item dropdown-toggle">Quero adotar</a>
                             <div className="dropdown-menu" id="someMeow"></div>
