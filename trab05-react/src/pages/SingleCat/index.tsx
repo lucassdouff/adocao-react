@@ -1,8 +1,18 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import useGatoPorId from "../../hooks/useGatoPorId";
+import useRemoverGato from "../../hooks/useRemoverGato";
 
 export function SingleCat() {
+    const navigate = useNavigate();
     const { id } = useParams();
+
+    const removerGato = useRemoverGato();
+
+    const handleRemoveGato = (id: number) => {
+        removerGato.mutate(id);
+        alert('Gatinho adotado com sucesso! 🐱')
+        navigate('/')
+    }
 
     const {
         data: resultado,
@@ -10,6 +20,7 @@ export function SingleCat() {
         error,
 
     } = useGatoPorId(id);
+
     
     if (isLoading) return <h6>Carregando...</h6>;
 
@@ -63,7 +74,7 @@ export function SingleCat() {
                             </div>
                         </div>
                         <div className="mb-3 row">
-                            <label className="col-form-label col-lg-2">Lorem ipsum</label>
+                            <label className="col-form-label col-lg-2">Tem filhos?</label>
                             <div className="col-lg-10" style={{paddingTop: "0.4375rem"}}>
                                 <div className="form-check form-check-inline">
                                     <input type="radio" id="sim-opt" name="opt" value="S" className="form-check-input" />
@@ -79,18 +90,16 @@ export function SingleCat() {
                     <fieldset className="mb-3">
                         <legend><strong>Informações adicionais</strong></legend>
                         <div className="mb-3 row">
-                            <label htmlFor="other-animals" className="col-form-label col-lg-2">Lorem Ipsum</label>
-                            <div className="col-lg-10">
-                                <select className="form-control" name="other-animals" id="other-animals" multiple>
-                                    <option value="1">Lo</option>
-                                    <option value="2">rem</option>
-                                    <option value="3">Ip</option>
-                                    <option value="4">sum</option>
+                            <label htmlFor="other-animals" className="col-form-label col-lg-2">Tipo de moradia</label>
+                            <div className="col-lg-3">
+                                <select className="form-control" name="other-animals" id="other-animals">
+                                    <option value="1">Apartamento</option>
+                                    <option value="2">Casa</option>
                                 </select>
                             </div>
                         </div>
                         <div className="mb-3 row">
-                            <label className="col-form-label col-lg-2">Lorem Ipsum</label>
+                            <label className="col-form-label col-lg-2">Como chegou até nós?</label>
                             <div className="col-lg-10">
                                 <div className="form-check">
                                     <input type="checkbox" className="form-check-input" name="social-media" id="social-media" />
@@ -115,7 +124,11 @@ export function SingleCat() {
                     </fieldset>
                     <div className="row text-center">
                         <div className="col-lg-10 flex-grow-1">
-                            <button type="button" className="btn btn-dark">Enviar</button>
+                            <button type="button" className="btn btn-dark"
+                                onClick={() => handleRemoveGato(gato.id!)}
+                            >
+                                Adotar !
+                            </button>
                         </div>
                     </div>
                 </form>

@@ -3,6 +3,7 @@ import useGatosPaginados from "../../hooks/useGatosPaginados";
 import { TabelaDeGatos } from "../../components/TabelaDeGatos";
 import { Paginacao } from "../../components/Paginacao";
 import Pesquisa from "../../components/Pesquisa";
+import { CadastroDeGatosForm } from "../../components/CadastroDeGatosForm";
 
 export function ListaDeGatos() {
     const tamanho = 5;
@@ -30,23 +31,25 @@ export function ListaDeGatos() {
     const totalDePaginas = resultadoPaginado.totalDePaginas;
 
     return (
-        <>
-        <div className="mb-4">
-        <h5>Cadastro de gatos para adoção</h5>
-        <hr className="mt-0" />
-        </div>
-
-        <div className="mb-4">
-            <h5>Nossos gatinhos!</h5>
+        <div className="container mt-2 mb-4 pb-2">
+            <div className="mb-4">
+            <h5>Cadastro de gatos para adoção</h5>
             <hr className="mt-0" />
+            </div>
+
+            <CadastroDeGatosForm />
+
+            <div className="mb-4">
+                <h5>Nossos gatinhos!</h5>
+                <hr className="mt-0" />
+            </div>
+            <Pesquisa nome={nome} onRetrieveNome={handleRetrievedNome} />
+            <TabelaDeGatos gatos={gatos} />
+            <Paginacao
+                pagina={pagina}
+                totalDePaginas={totalDePaginas}
+                onSelectPage={handleSelectedPage}
+            />
         </div>
-        <Pesquisa nome={nome} onRetrieveNome={handleRetrievedNome} />
-        <TabelaDeGatos gatos={gatos} />
-        <Paginacao
-            pagina={pagina}
-            totalDePaginas={totalDePaginas}
-            onSelectPage={handleSelectedPage}
-        />
-        </>
     );
 }

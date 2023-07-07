@@ -20,7 +20,7 @@ const Pesquisa = ({ nome, onRetrieveNome }:PesquisaProps) => {
             >
             <input
                 ref={pesqRef}
-                className="form-control me-2"
+                className="form-control me-2 border-dark"
                 placeholder="Pesquisa..."
                 aria-label="Search"
                 defaultValue={nome}

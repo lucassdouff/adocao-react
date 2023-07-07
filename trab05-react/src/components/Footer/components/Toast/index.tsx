@@ -6,7 +6,7 @@ import Toast from 'react-bootstrap/Toast';
 import wppIcon from '../../../../assets/wpp-icon.png'
 
 export function ToastDemo() {
-    const [showA, setShowA] = useState(true);
+    const [showA, setShowA] = useState(false);
   
     const toggleShowA = () => setShowA(!showA);
   
