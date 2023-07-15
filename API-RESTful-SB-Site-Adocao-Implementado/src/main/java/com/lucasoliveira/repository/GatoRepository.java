@@ -18,17 +18,23 @@ public interface GatoRepository extends JpaRepository<Gato, Long> {
     @Query("select g from Gato g where g.id = :id")
     Optional<Gato> recuperarGatoPorIdComLock(@Param("id") Long id);
 
-    @Query("select g from Gato g left join fetch g.categoria c where c.id = :id")
-    List<Gato> findByCategoriaId(Long id);
+    @Query("select g from Gato g left join fetch g.categoria c where c.id = :id and g.nome like %:nome% order by g.id desc")
+    List<Gato> findByCategoriaId(Long id, String nome);
 
     List<Gato> findByCategoriaSlug(String slug);
 
     @Query("select g from Gato g left join fetch g.categoria")
     List<Gato> recuperarGatosComCategoria();
 
+    @Query("select g from Gato g order by rand() limit 1")
+    Gato recuperarGatoAleatorio();
+
     @Query(
-            value = "select g from Gato g left join fetch g.categoria order by g.id",
-            countQuery = "select count(g) from Gato g"
+            value = "select g from Gato g left join fetch g.categoria c where g.nome like %:nome% and c.slug like %:categoria% order by g.id desc",
+            countQuery = "select count(g) from Gato g where g.nome like %:nome%"
     )
-    Page<Gato> recuperarGatosPaginados(Pageable pageable);
+    Page<Gato> recuperarGatosPaginados(Pageable pageable, String nome, String categoria);
+
+    @Query("select g from Gato g order by g.id desc limit 6")
+    List<Gato> recuperarGatosRecentes();
 }

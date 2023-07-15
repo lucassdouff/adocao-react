@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GatoService {
@@ -48,15 +49,21 @@ public class GatoService {
         gatoRepository.deleteById(id);
     }
 
-    public List<Gato> recuperarGatosPorCategoria(Long id) {
-        return gatoRepository.findByCategoriaId(id);
+    public List<Gato> recuperarGatosPorCategoria(Long id, String nome) {
+        return gatoRepository.findByCategoriaId(id, nome);
     }
 
     public List<Gato> recuperarGatosPorSlugDaCategoria(String slug) {
         return gatoRepository.findByCategoriaSlug(slug);
     }
 
-    public Page<Gato> recuperarGatosPaginados(Pageable pageable) {
-        return gatoRepository.recuperarGatosPaginados(pageable);
+    public Gato recuperarGatoAleatorio() { return gatoRepository.recuperarGatoAleatorio(); }
+
+    public Page<Gato> recuperarGatosPaginados(Pageable pageable, String nome, String categoria) {
+        return gatoRepository.recuperarGatosPaginados(pageable, nome, categoria);
+    }
+
+    public List<Gato> recuperarGatosRecentes() {
+        return gatoRepository.recuperarGatosRecentes();
     }
 }

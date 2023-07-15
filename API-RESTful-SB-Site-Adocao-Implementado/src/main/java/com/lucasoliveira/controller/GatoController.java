@@ -52,19 +52,31 @@ public class GatoController {
     }
 
     @GetMapping("categoria")   // http://localhost:8080/gatos/categoria?idCategoria=1
-    public List<Gato> recuperarGatosPorCategoriaV2(@RequestParam("idCategoria") Long id) {
+    public List<Gato> recuperarGatosPorCategoriaV2(
+            @RequestParam("idCategoria") Long id,
+            @RequestParam(name="nome", defaultValue = "") String nome
+
+    ) {
         if (id.equals(-1L))
             return gatoService.recuperarGatos();
-        return gatoService.recuperarGatosPorCategoria(id);
+        return gatoService.recuperarGatosPorCategoria(id, nome);
     }
+
+    @GetMapping("recentes")
+    public List<Gato> recuperarGatosRecentes() { return gatoService.recuperarGatosRecentes(); }
+
+    @GetMapping("adote")
+    public Gato recuperarGatoAleatorio() { return gatoService.recuperarGatoAleatorio(); }
 
     @GetMapping("paginacao")   // http://localhost:8080/gatos/paginacao?pagina=0&tamanho=5
     public GatosPaginados recuperarGatosPaginados(
             @RequestParam(name="pagina", defaultValue = "0") int pagina,
-            @RequestParam(name="tamanho", defaultValue = "3") int tamanho
+            @RequestParam(name="tamanho", defaultValue = "3") int tamanho,
+            @RequestParam(name="nome", defaultValue = "") String nome,
+            @RequestParam(name="categoria", defaultValue = "") String categoria
     ) {
         Pageable pageable = PageRequest.of(pagina, tamanho);
-        Page<Gato> paginaDeGato = gatoService.recuperarGatosPaginados(pageable);
+        Page<Gato> paginaDeGato = gatoService.recuperarGatosPaginados(pageable, nome, categoria);
         return new GatosPaginados(
                 paginaDeGato.getTotalElements(),
                 paginaDeGato.getTotalPages(),
