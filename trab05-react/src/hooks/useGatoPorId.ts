@@ -3,7 +3,7 @@ import ApiGato from "../api/apiGato";
 
 const apiGato = new ApiGato();
 
-const useGatoPorId = (query: any) =>
+const useGatoPorId = (query: number) =>
     useQuery({
         queryKey: ["gatos", query],
         queryFn: () => apiGato.recuperarPorId(query),

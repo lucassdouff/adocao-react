@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import cover1 from '../../assets/main-background-cover.jpg'
 import cover2 from '../../assets/main-background-cover2.jpg'
-import useGatos from '../../hooks/useGatos'
 import { CardsDeGatos } from '../../components/CardsDeGatos';
+import useGatosRecentes from '../../hooks/useGatosRecentes';
 
 export function Home(){
 
@@ -10,8 +10,9 @@ export function Home(){
         data: resultado,
         isLoading,
         error,
-    } = useGatos();
+    } = useGatosRecentes();
 
+    console.log(resultado)
     if (isLoading) return <h6>Carregando...</h6>;
 
     if(error || !resultado) throw error;

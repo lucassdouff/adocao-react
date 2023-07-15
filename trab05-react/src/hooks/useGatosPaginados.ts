@@ -12,6 +12,7 @@ const useGatosPaginados = (query: QueryStringGato) =>
                 pagina: query.pagina,
                 tamanho: query.tamanho,
                 nome: query.nome,
+                categoria: query.categoria,
             },
         }),
         staleTime: 10_000,

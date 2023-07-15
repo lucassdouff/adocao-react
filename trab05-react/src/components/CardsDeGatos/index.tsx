@@ -8,7 +8,7 @@ interface CardsDeGatosProps {
 export function CardsDeGatos({ gatos }:CardsDeGatosProps) {
     return(
         <>
-        {gatos.map((gato) => {
+        {gatos?.map((gato) => {
             return(
                 <NavLink key={gato.id} to={"/gatos/" + gato.id} id="cat" className="col-lg-4 col-md-6 mb-2 px-2 py-2 text-center cat-hover" style={{cursor: "pointer", textDecoration: "none", color: "#000"}}>
                     <img src={'images/' + gato.imagem} className="catImg" />

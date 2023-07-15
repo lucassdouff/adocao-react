@@ -23,7 +23,7 @@ class ApiGenerica<T> {
     recuperarPagina = (config: AxiosRequestConfig) =>   
         ApiGenerica.axiosInstance
         .get<ResultadoPaginado<T>>(this.endpoint + "/paginacao", config)
-        .then((res) => res.data);    
+        .then((res) => res.data);
     
     recuperarTodos = () =>   
         ApiGenerica.axiosInstance

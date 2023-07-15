@@ -21,7 +21,7 @@ export function Paginacao({ pagina, totalDePaginas, onSelectPage }:PaginacaoProp
 
     return(
         <>
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation" className="d-flex justify-content-center">
             <ul className="pagination">
                 <li className={pagina === 0 ? "page-item disabled" : "page-item"} style={{cursor: "pointer"}}>
                 <a onClick={() => onSelectPage(pagina - 1)} className="page-link">Anterior</a>

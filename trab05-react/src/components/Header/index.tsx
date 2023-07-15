@@ -1,7 +1,21 @@
 import { NavLink } from 'react-router-dom'
 import strayLogo from '../../assets/stray-logo.png'
+import useGatoAleatorio from '../../hooks/useGatoAleatorio'
 
 export function Header() {
+
+    const {
+        data: resultadoAleatorio,
+        isLoading,
+        error
+    } = useGatoAleatorio();
+
+    if (isLoading) return;
+
+    if(error || !resultadoAleatorio) throw error;
+
+    const gato = resultadoAleatorio;
+
     return(
         <>
         <nav className="navbar navbar-light bg-light navbar-expand-md">
@@ -23,7 +37,11 @@ export function Header() {
                         </NavLink>
                         <div className="dropdown">
                             <a href="archive-1.html" data-bs-toggle="dropdown" className="nav-link nav-item dropdown-toggle">Quero adotar</a>
-                            <div className="dropdown-menu" id="someMeow"></div>
+                            <div className="dropdown-menu">
+                                <NavLink to={"/gatos/" + gato.id} className="d-flex justify-content-center" style={{textDecoration: "none", color: "#000"}}>
+                                    Adote um gatinho!
+                                </NavLink>
+                            </div>
                         </div>
                         <NavLink to="/quem-somos" title='Quem Somos' className="nav-link nav-item">
                             Quem somos
