@@ -5,6 +5,7 @@ import { QuemSomos } from "./pages/QuemSomos";
 import { ListaDeGatos } from "./pages/ListaDeGatos";
 import { SingleCat } from "./pages/SingleCat";
 import ErrorPage from "./pages/ErrorPage";
+import { PorRaca } from "./pages/PorRaca";
 
 
 const router = createBrowserRouter([
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
             { path: "/", element: <Home /> },
             { path: "/quem-somos", element: <QuemSomos /> },
             { path: "/nossos-gatinhos", element: <ListaDeGatos /> },            
-            { path: "/gatos/:id", element: <SingleCat /> },            
+            { path: "/gatos/:id", element: <SingleCat /> },
+            { path: "/por-raca", element: <PorRaca />}            
         ]
     }
 ]);

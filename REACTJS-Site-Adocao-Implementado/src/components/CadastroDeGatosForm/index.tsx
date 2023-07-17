@@ -137,7 +137,7 @@ export function CadastroDeGatosForm() {
                 <div className="col-xl-6">
                 <div className="row mb-2">
                     <label htmlFor="categoria" className="col-xl-2 fw-bold">
-                    Categoria
+                    Raça
                     </label>
                     <div className="col-xl-10">
                     <select
@@ -150,7 +150,7 @@ export function CadastroDeGatosForm() {
                         }
                     >
                         <option key={0} value="0">
-                        Selecione uma categoria
+                        Selecione uma raça
                         </option>
                         {categorias?.map((categoria) => (
                         <option key={categoria.id} value={categoria.id}>

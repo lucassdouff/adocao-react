@@ -122,7 +122,7 @@ export function Home(){
                                 <p>
                                     CEP: 01000-000 <br/>
                                     Endereço: Avenida Paulista, São Paulo - SP <br/>
-                                    Descrição: São Paulo é a maior cidade do Brasil e uma das maiores metrópoles do mundo. É conhecida por sua agitada vida cultural, arranha-céus imponentes, parques urbanos e diversidade gastronômica.
+                                    Descrição: São Paulo é a maior cidade do Brasil e uma das maiores metrópoles do mundo. É conhecida por sua agitada vida cultural, parques urbanos e diversidade gastronômica.
                                 </p>
                             </div>
                         </div>
@@ -158,7 +158,7 @@ export function Home(){
                                 <p>
                                     CEP: 69000-000 <br/>
                                     Endereço: Teatro Amazonas, Manaus - AM <br/>
-                                    Descrição: Manaus é a maior cidade da região Norte do Brasil e está localizada no coração da Floresta Amazônica. O Teatro Amazonas é um dos principais pontos turísticos da cidade e reflete a era áurea do ciclo da borracha na região.
+                                    Descrição: Manaus é a maior cidade da região Norte do Brasil e está localizada no coração da Floresta Amazônica. O Teatro Amazonas é um dos principais pontos turísticos da cidade.
                                 </p>
                             </div>
                         </div>
