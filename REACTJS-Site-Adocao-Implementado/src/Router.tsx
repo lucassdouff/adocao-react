@@ -18,7 +18,7 @@ const router = createBrowserRouter([
             { path: "/quem-somos", element: <QuemSomos /> },
             { path: "/nossos-gatinhos", element: <ListaDeGatos /> },            
             { path: "/gatos/:id", element: <SingleCat /> },
-            { path: "/por-raca", element: <PorRaca />}            
+            { path: "/por-raca/:idCategoria", element: <PorRaca />}            
         ]
     }
 ]);

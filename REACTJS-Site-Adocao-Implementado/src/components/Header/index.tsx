@@ -43,7 +43,7 @@ export function Header() {
                                 </NavLink>
                             </div>
                         </div>
-                        <NavLink to="/por-raca" title='Gatos por raça' className="nav-link nav-item">
+                        <NavLink to="/por-raca/0" title='Gatos por raça' className="nav-link nav-item">
                             Por Raça
                         </NavLink>
                         <NavLink to="/quem-somos" title='Quem Somos' className="nav-link nav-item">

@@ -1,5 +1,5 @@
 interface QueryStringCategoria {
-    idCategoria: number;
+    idCategoria?: string;
     nome: string;
 }
 
