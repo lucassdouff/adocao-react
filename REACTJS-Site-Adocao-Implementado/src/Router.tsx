@@ -6,6 +6,8 @@ import { SingleCat } from "./pages/SingleCat";
 import ErrorPage from "./pages/ErrorPage";
 import { PorRaca } from "./pages/PorRaca";
 import ParaAdocao from "./pages/ParaAdocao";
+import Login from "./pages/Login";
+import Cadastro from "./pages/Cadastro";
 
 
 const router = createBrowserRouter([
@@ -18,7 +20,9 @@ const router = createBrowserRouter([
             { path: "/nossos-gatinhos", element: <ListaDeGatos /> },            
             { path: "/gatos/:id", element: <SingleCat /> },
             { path: "/por-raca/:idCategoria", element: <PorRaca />},
-            { path: "/para-adocao", element: <ParaAdocao />}         
+            { path: "/para-adocao", element: <ParaAdocao />},
+            { path: "/login", element: <Login />},
+            { path: "/signup", element: <Cadastro />}
         ]
     }
 ]);

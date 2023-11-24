@@ -32,7 +32,7 @@ export function ListaDeGatos() {
     return (
         <div className="container mt-2 mb-4 pb-2">
             <div className="mb-3 mt-4">
-                <div className="d-flex justify-content-between">
+                <div className="ms-2 d-flex justify-content-between">
                     <h5>Nossos gatinhos!</h5>
                 </div>
             </div>

@@ -3,6 +3,8 @@ import strayLogo from '../../assets/stray-logo.png'
 
 export function Header() {
 
+    const user = localStorage.getItem('session');
+
     return(
         <>
         <nav className="navbar navbar-light bg-light navbar-expand-md">
@@ -28,6 +30,17 @@ export function Header() {
                         <NavLink to="/para-adocao" title='Para adoção' className="nav-link nav-item p-2">
                             Para adoção
                         </NavLink>
+                        {
+                        user ? (
+                            <NavLink to="/painel" title='Painel' className="nav-link nav-item p-2">
+                                Painel
+                            </NavLink>
+                        ) : (
+                            <NavLink to="/login" title='Login' className="nav-link nav-item p-2">
+                                Fazer login
+                            </NavLink>
+                        )
+                        }
                     </div>
                 </div>
             </div>
