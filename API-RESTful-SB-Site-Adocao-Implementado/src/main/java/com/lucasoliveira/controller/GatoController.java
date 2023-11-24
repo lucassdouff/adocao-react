@@ -57,7 +57,7 @@ public class GatoController {
             @RequestParam(name="nome", defaultValue = "") String nome
 
     ) {
-        if (id.equals(-1L))
+        if (id == 0)
             return gatoService.recuperarGatos();
         return gatoService.recuperarGatosPorCategoria(id, nome);
     }
@@ -72,11 +72,10 @@ public class GatoController {
     public GatosPaginados recuperarGatosPaginados(
             @RequestParam(name="pagina", defaultValue = "0") int pagina,
             @RequestParam(name="tamanho", defaultValue = "3") int tamanho,
-            @RequestParam(name="nome", defaultValue = "") String nome,
-            @RequestParam(name="categoria", defaultValue = "") String categoria
+            @RequestParam(name="nome", defaultValue = "") String nome
     ) {
         Pageable pageable = PageRequest.of(pagina, tamanho);
-        Page<Gato> paginaDeGato = gatoService.recuperarGatosPaginados(pageable, nome, categoria);
+        Page<Gato> paginaDeGato = gatoService.recuperarGatosPaginados(pageable, nome);
         return new GatosPaginados(
                 paginaDeGato.getTotalElements(),
                 paginaDeGato.getTotalPages(),

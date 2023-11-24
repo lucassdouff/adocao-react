@@ -30,10 +30,10 @@ public interface GatoRepository extends JpaRepository<Gato, Long> {
     Gato recuperarGatoAleatorio();
 
     @Query(
-            value = "select g from Gato g left join fetch g.categoria c where g.nome like %:nome% and c.slug like %:categoria% order by g.id desc",
+            value = "select g from Gato g left join fetch g.categoria c where g.nome like %:nome% order by g.id desc",
             countQuery = "select count(g) from Gato g where g.nome like %:nome%"
     )
-    Page<Gato> recuperarGatosPaginados(Pageable pageable, String nome, String categoria);
+    Page<Gato> recuperarGatosPaginados(Pageable pageable, String nome);
 
     @Query("select g from Gato g order by g.id desc limit 6")
     List<Gato> recuperarGatosRecentes();

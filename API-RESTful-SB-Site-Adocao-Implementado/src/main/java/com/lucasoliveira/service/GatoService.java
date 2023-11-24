@@ -59,8 +59,8 @@ public class GatoService {
 
     public Gato recuperarGatoAleatorio() { return gatoRepository.recuperarGatoAleatorio(); }
 
-    public Page<Gato> recuperarGatosPaginados(Pageable pageable, String nome, String categoria) {
-        return gatoRepository.recuperarGatosPaginados(pageable, nome, categoria);
+    public Page<Gato> recuperarGatosPaginados(Pageable pageable, String nome) {
+        return gatoRepository.recuperarGatosPaginados(pageable, nome);
     }
 
     public List<Gato> recuperarGatosRecentes() {

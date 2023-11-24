@@ -34,55 +34,55 @@ public class ResTful01SbApplication implements CommandLineRunner {
 		categoriaRepository.save(brasileiro);
 
 		Gato gato = new Gato(
-				"gato3.jpg",
+				"gato1.jpg",
 				siames,
 				"Abacate",
-				"1 unidade aprox. 750g",
+				"Um gato fofinho",
 				LocalDate.of(2020, 4, 26),
 				"Macho");
 		gatoRepository.save(gato);
 
 		gato = new Gato(
-				"gato2.jpeg",
+				"gato2.jpg",
 				brasileiro,
 				"Abobrinha",
-				"1 unidade aprox. 250g",
+				"Um gato mais fofinho",
 				LocalDate.of(2022, 5, 22),
 				"Fêmea");
 		gatoRepository.save(gato);
 
 		gato = new Gato(
-				"gato1.jpg",
+				"gato3.jpg",
 				persa,
 				"Pandora",
-				"1 unidade aprox. 250g",
+				"Um gato muito mais fofinho",
 				LocalDate.of(2019, 5, 22),
 				"Fêmea");
 		gatoRepository.save(gato);
 
 		gato = new Gato(
-				"gato3.jpg",
+				"gato4.jpg",
 				brasileiro,
 				"Kion",
-				"1 unidade aprox. 250g",
+				"Um gato fofinho pra caralho",
 				LocalDate.of(2020, 2, 22),
 				"Macho");
 		gatoRepository.save(gato);
 
 		gato = new Gato(
-				"gato2.jpeg",
+				"gato5.jpg",
 				siames,
 				"Marie",
-				"1 unidade aprox. 250g",
+				"Porra que gato fofinho",
 				LocalDate.of(2021, 12, 22),
 				"Fêmea");
 		gatoRepository.save(gato);
 
 		gato = new Gato(
-				"gato1.jpg",
+				"gato6.jpg",
 				siames,
 				"Mochi",
-				"1 unidade aprox. 250g",
+				"Muito fofo mesmo que gato fofo",
 				LocalDate.of(2021, 12, 22),
 				"Fêmea");
 		gatoRepository.save(gato);
