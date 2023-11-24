@@ -9,7 +9,7 @@ interface TabelaDeGatosProps {
 export function TabelaDeGatos({ gatos }:TabelaDeGatosProps) {
     return (
         <>
-        <div className="row container">
+        <div className="row container ms-1">
             {gatos?.map((gato) => 
                 <NavLink key={gato.id} to={"/gatos/" + gato.id} id="cat" className="col-lg-4 col-md-6 mb-4 text-center hover px-2 py-2 cat-hover" style={{cursor: "pointer", textDecoration: "none", color: "#000"}}>
                     <img src={'images/' + gato.imagem} className="catImg" />

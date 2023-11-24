@@ -123,7 +123,11 @@ export function SingleCat() {
                     <div className="row text-center">
                         <div className="col-lg-10 flex-grow-1">
                             <button type="button" className="btn btn-dark"
-                                onClick={() => handleRemoveGato(gato.id!)}
+                                onClick={() => {
+                                    if(gato.id){
+                                        handleRemoveGato(gato.id)
+                                    }
+                                }}
                             >
                                 Adotar !
                             </button>

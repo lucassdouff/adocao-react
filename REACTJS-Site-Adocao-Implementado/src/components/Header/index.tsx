@@ -1,20 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import strayLogo from '../../assets/stray-logo.png'
-import useGatoAleatorio from '../../hooks/useGatoAleatorio'
 
 export function Header() {
-
-    const {
-        data: resultadoAleatorio,
-        isLoading,
-        error
-    } = useGatoAleatorio();
-
-    if (isLoading) return;
-
-    if(error || !resultadoAleatorio) throw error;
-
-    const gato = resultadoAleatorio;
 
     return(
         <>
@@ -32,22 +19,14 @@ export function Header() {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação"><span className="navbar-toggler-icon"></span></button>
                 <div className="collapse navbar-collapse" id="menu">
                     <div className="navbar-nav me-auto">
-                        <NavLink to="/nossos-gatinhos" title="Nossos Gatinhos" className="nav-link nav-item">
+                        <NavLink to="/nossos-gatinhos" title="Nossos Gatinhos" className="nav-link nav-item p-2">
                             Nossos gatinhos
                         </NavLink>
-                        <div className="dropdown">
-                            <a href="archive-1.html" data-bs-toggle="dropdown" className="nav-link nav-item dropdown-toggle">Quero adotar</a>
-                            <div className="dropdown-menu">
-                                <NavLink to={"/gatos/" + gato.id} className="d-flex justify-content-center" style={{textDecoration: "none", color: "#000"}}>
-                                    Adote um gatinho!
-                                </NavLink>
-                            </div>
-                        </div>
-                        <NavLink to="/por-raca/0" title='Gatos por raça' className="nav-link nav-item">
-                            Por Raça
+                        <NavLink to="/por-raca/0" title='Gatos por raça' className="nav-link nav-item p-2">
+                            Raças
                         </NavLink>
-                        <NavLink to="/quem-somos" title='Quem Somos' className="nav-link nav-item">
-                            Quem somos
+                        <NavLink to="/para-adocao" title='Para adoção' className="nav-link nav-item p-2">
+                            Para adoção
                         </NavLink>
                     </div>
                 </div>

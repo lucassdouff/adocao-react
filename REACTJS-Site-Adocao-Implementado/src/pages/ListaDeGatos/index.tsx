@@ -3,7 +3,6 @@ import useGatosPaginados from "../../hooks/useGatosPaginados";
 import { TabelaDeGatos } from "../../components/TabelaDeGatos";
 import { Paginacao } from "../../components/Paginacao";
 import Pesquisa from "../../components/Pesquisa";
-import { CadastroDeGatosForm } from "../../components/CadastroDeGatosForm";
 
 export function ListaDeGatos() {
     const tamanho = 6;
@@ -32,18 +31,10 @@ export function ListaDeGatos() {
 
     return (
         <div className="container mt-2 mb-4 pb-2">
-            <div className="mb-4">
-            <h5>Cadastro de gatos para adoção</h5>
-            <hr className="mt-0" />
-            </div>
-
-            <CadastroDeGatosForm />
-
-            <div className="mb-4">
+            <div className="mb-3 mt-4">
                 <div className="d-flex justify-content-between">
                     <h5>Nossos gatinhos!</h5>
                 </div>
-                <hr className="mt-0" />
             </div>
             <Pesquisa nome={nome} onRetrieveNome={handleRetrievedNome} />
             {gatos.length > 0 ? <TabelaDeGatos gatos={gatos} /> : <h6 style={{height: "100vh", marginTop: "2rem"}}>Não há gatinhos cadastrados 😢</h6>}

@@ -1,15 +1,13 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import ScrollToTop from "../../components/ScrollToTop";
 
 export function DefaultLayout() {
     return(
-        <>
-        <ScrollToTop />
+        <body className="d-flex flex-column min-vh-100">
         <Header />
         <Outlet />
         <Footer />
-        </>
+        </body>
     )
 }
