@@ -2,8 +2,10 @@ package com.lucasoliveira;
 
 import com.lucasoliveira.model.Categoria;
 import com.lucasoliveira.model.Gato;
+import com.lucasoliveira.model.Usuario;
 import com.lucasoliveira.repository.CategoriaRepository;
 import com.lucasoliveira.repository.GatoRepository;
+import com.lucasoliveira.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +21,9 @@ public class ResTful01SbApplication implements CommandLineRunner {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ResTful01SbApplication.class, args);
@@ -86,6 +91,9 @@ public class ResTful01SbApplication implements CommandLineRunner {
 				LocalDate.of(2021, 12, 22),
 				"Fêmea");
 		gatoRepository.save(gato);
+
+		Usuario usuario = new Usuario("Paulo","paulo@email.com","12345678911","123456");
+		usuarioRepository.save(usuario);
 
 	}
 }
