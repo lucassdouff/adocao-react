@@ -8,6 +8,7 @@ import { PorRaca } from "./pages/PorRaca";
 import ParaAdocao from "./pages/ParaAdocao";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
+import Painel from "./pages/Painel";
 
 
 const router = createBrowserRouter([
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
             { path: "/por-raca/:idCategoria", element: <PorRaca />},
             { path: "/para-adocao", element: <ParaAdocao />},
             { path: "/login", element: <Login />},
-            { path: "/signup", element: <Cadastro />}
+            { path: "/signup", element: <Cadastro />},
+            { path: "/painel", element: <Painel />}
         ]
     }
 ]);

@@ -1,9 +1,17 @@
 import { NavLink } from 'react-router-dom'
 import strayLogo from '../../assets/stray-logo.png'
+import { useEffect, useState } from 'react';
 
 export function Header() {
 
-    const user = localStorage.getItem('session');
+    const [isloggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const user = localStorage.getItem('session');
+        if (user) {
+            setIsLoggedIn(true);
+        }
+    }, []);
 
     return(
         <>
@@ -31,9 +39,9 @@ export function Header() {
                             Para adoção
                         </NavLink>
                         {
-                        user ? (
+                        isloggedIn ? (
                             <NavLink to="/painel" title='Painel' className="nav-link nav-item p-2">
-                                Painel
+                                Painel de usuário
                             </NavLink>
                         ) : (
                             <NavLink to="/login" title='Login' className="nav-link nav-item p-2">

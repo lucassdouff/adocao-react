@@ -1,6 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+import Usuario from '../../interfaces/Usuario';
+import useCadastrarUsuario from '../../hooks/useCadastro';
+import { useNavigate } from 'react-router-dom';
 
 const schema = z.object({
     nome: z
@@ -24,6 +27,8 @@ type FormData = z.infer<typeof schema>
 
 export default function Cadastro() {
 
+    const navigate = useNavigate();
+    
     const {
         register,
         handleSubmit,
@@ -31,9 +36,20 @@ export default function Cadastro() {
         formState: { errors },
 
     } = useForm<FormData>({ resolver: zodResolver(schema) });
+
+    const cadastrarUsuario = useCadastrarUsuario();
     
     const onSubmit = async (data: FormData) => {
-        console.log(data);
+        const user : Usuario = {
+            nome: data.nome,
+            email: data.email,
+            cpf: data.cpf,
+            senha: data.senha,
+        }
+
+        cadastrarUsuario.mutate(user);
+        alert('Cadastro realizado com sucesso!');
+        navigate('/login');
         reset();
     };
 

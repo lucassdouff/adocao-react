@@ -12,7 +12,6 @@ export function Home(){
         error,
     } = useGatosRecentes();
 
-    console.log(resultado)
     if (isLoading) return <h6>Carregando...</h6>;
 
     if(error || !resultado) throw error;

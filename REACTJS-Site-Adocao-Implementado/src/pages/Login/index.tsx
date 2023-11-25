@@ -1,7 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as z from 'zod';
+import useLogin from "../../hooks/useLogin";
+import { useEffect, useState } from "react";
+import QueryLogin from "../../interfaces/queryLogin";
 
 const schema = z.object({
     email: z
@@ -16,6 +19,15 @@ type FormData = z.infer<typeof schema>
 
 export default function Login() {
 
+    const navigate = useNavigate();
+
+    const [login, setLogin] = useState<QueryLogin>({ email: "", senha: ""});
+
+    const {
+        data: resultado,
+        error,
+    } = useLogin({email: login?.email, senha: login?.senha});
+    
     const {
         register,
         handleSubmit,
@@ -24,9 +36,20 @@ export default function Login() {
 
     } = useForm<FormData>({ resolver: zodResolver(schema) });
     
+    useEffect(() => {
+        if (resultado) {
+            localStorage.setItem("session", JSON.stringify(resultado));
+            alert("Login efetuado com sucesso!");
+            navigate("/");
+            navigate(0);
+        } else if (error) {
+            console.log(error);
+            alert("Erro ao efetuar login!");
+        }
+    }, [resultado, error, navigate]);
 
     const onSubmit = async (data: FormData) => {
-        console.log(data);
+        setLogin(data);
         reset();
     };
 
